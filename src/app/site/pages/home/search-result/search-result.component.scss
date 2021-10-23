@@ -1,0 +1,40 @@
+.sub-title-count {
+    font-weight: 400;
+    font-size: 11px;
+    color: #666;
+}
+
+.sub-title-text {
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+}
+
+.sr-content-text {
+    font-size: 0.9rem;
+    // height: 2.2rem;
+    // white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /* 라인수 */
+    word-wrap: break-word;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.sr-post-title {
+    font-size: 1rem;
+    max-height: 2rem;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.sr-item-footer-post {
+    color: #818181;
+    font-size: .7rem;
+}
+
+.sr-item-creator {
+    color: black;
+    font-weight: bold;
+}

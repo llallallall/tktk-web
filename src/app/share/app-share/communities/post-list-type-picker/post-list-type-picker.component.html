@@ -1,0 +1,12 @@
+<mat-button-toggle-group #group="matButtonToggleGroup" [value]="code" (change)="onChange($event)">
+    <mat-button-toggle *ngFor="let item of items"
+    [value]="item.code">
+        <mat-icon>{{item.iconId}}</mat-icon>
+    </mat-button-toggle>
+    <!-- <mat-button-toggle value="center">
+        <mat-icon>image</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="center">
+        <mat-icon>smart_display</mat-icon>
+    </mat-button-toggle> -->
+</mat-button-toggle-group>

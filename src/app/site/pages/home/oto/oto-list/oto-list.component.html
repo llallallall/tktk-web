@@ -1,0 +1,67 @@
+<app-page-title-back>
+    1:1 문의 목록
+</app-page-title-back>
+
+<app-page-container>
+
+    <div class="cu-section-wrap">
+        <!-- <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+            <div class="cu-section-title">공지사항 검색</div>
+        </div> -->
+        <div>
+            <app-oto-list-filter [qp]="qp" (on_changed)="on_changed_filter($event)"></app-oto-list-filter>
+        </div>
+    </div>
+
+    <div style="width: 100%;">
+        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutGap="32px">
+                <button mat-stroked-button color="primary" (click)="onClickAdd()">
+                    <mat-icon inline>add</mat-icon>
+                    문의 하기
+                </button>
+            </div>
+
+            <mat-paginator [showFirstLastButtons]="true" [length]="qp.totalCount" [pageSize]="qp.pageSize"
+                [pageIndex]="qp.pageNo" [pageSizeOptions]="[10, 20, 50, 100]" (page)="onPageEvent($event)"
+                style="margin: 0.5rem 0;">
+            </mat-paginator>
+        </div>
+    </div>
+
+    <div>
+        <mat-divider></mat-divider>
+        <div *ngFor="let item of items">
+            <div fxLayout="column" fxLayoutGap=".5rem" style="margin: 1rem 0;">
+                <div class="qna-item-title"
+                (click)="onClickItem(item)"
+                >{{item.title}}</div>
+                <div fxLayout="row" fxLayoutGap="1vw" class="qna-item-footer">
+                    <div>
+                        {{item.userCreator?.displayName}}
+                    </div>
+                    <div> | </div>
+                    <div>
+                        {{item.createdAtDate | date:'yyyy-MM-dd'}}
+                    </div>
+                    <div> | </div>
+                    <div>
+                        {{item.doneFlag}}
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+
+    <div *ngIf="items.length === 0" style="margin: 5vh 0; font-weight: bold; opacity: .3;">
+        <span>
+            검색결과가없습니다.
+        </span>
+    </div>
+
+
+    <!-- <app-pdf-link [pageNo]="90" title="inquiry-list"></app-pdf-link> -->
+
+
+</app-page-container>

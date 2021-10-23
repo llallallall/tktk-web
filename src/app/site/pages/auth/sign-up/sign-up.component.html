@@ -1,0 +1,107 @@
+<app-page-container *ngIf="userModel" [@fadeIn] fxLayout="column" fxLayoutAlign="center center">
+
+    <div fxFlexFill fxLayout="column" fxLayoutAlign="center center"
+    fxLayoutGap="1rem" style="width: 300px; max-width: 600px;">
+        <div class="header-mo" fxLayout="row" fxLayoutAlign="center center" style="margin: 5vh 0;">
+            <div class="overlap-group">
+                <img class="logo" [src]="siteModel.logoUrl" style="width: 300px; height: 72px; object-fit: contain;">
+            </div>
+        </div>
+        <div fxFlex class="login-title">
+            회원가입
+        </div>
+
+        <div *ngIf="siteModel.accountType === 'id' && !isSns" [@fadeIn] fxLayout="column" fxFlexFill>
+            <mat-form-field appearance="standard">
+                <mat-label>ID</mat-label>
+                <input matInput [(ngModel)]="userModel.userId">
+            </mat-form-field>
+            <button *ngIf="userModel.userId" [@fadeIn] mat-stroked-button style="margin-top: 1.5rem;"
+                (click)="onClickChkDup('userId')">중복확인</button>
+        </div>
+
+
+        <div fxLayout="column" fxFlexFill>
+            <mat-form-field appearance="standard">
+                <mat-label>이메일 주소</mat-label>
+                <input matInput [(ngModel)]="userModel.email">
+                <mat-hint>이메일은 비밀번호찾기 시 사용되므로 사용중인 이메일주소를 입력해주세요</mat-hint>
+            </mat-form-field>
+            <button *ngIf="userModel.email" [@fadeIn] mat-stroked-button 
+            style="margin-top: 1.5rem;"
+            (click)="onClickChkDup('email')">중복확인</button>
+        </div>
+
+        <div *ngIf="!isSns" fxLayout="column" fxFlexFill>
+            <mat-form-field appearance="standard">
+                <mat-label>비밀번호</mat-label>
+                <input matInput [(ngModel)]="userModel.passwd">
+                <mat-hint>비밀번호는6~20자사이의영문, 숫자, 영문+숫자를사용해주세요</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div *ngIf="!isSns" fxLayout="column" fxFlexFill>
+            <mat-form-field appearance="standard">
+                <mat-label>비밀번호확인</mat-label>
+                <input matInput [(ngModel)]="userModel.passwdConfirm">
+                <mat-hint>비밀번호를 한번 더 입력해주세요</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="column" fxFlexFill>
+            <mat-form-field appearance="standard">
+                <mat-label>닉네임</mat-label>
+                <input matInput [(ngModel)]="userModel.nickname">
+                <mat-hint>
+                    닉네임은 한글,영문,숫자,일부특수문자를 사용해 2~8자이내로 입력해주세요.
+                    <br>
+                    설정한 닉네임은 변경할 수 없습니다. 닉네임 설정시 신중히 설정해주세요.
+                </mat-hint>
+            </mat-form-field>
+            <button *ngIf="userModel.nickname" [@fadeIn] mat-stroked-button
+            style="margin-top: 2.5rem;"
+                (click)="onClickChkDup('nickname')">중복확인</button>
+        </div>
+
+        <!-- <div fxLayout="column" fxFlexFill>
+            <mat-form-field appearance="standard">
+                <mat-label>생년월일</mat-label>
+                <input matInput [(ngModel)]="userModel.birthDate" placeholder="20201130">
+                <mat-hint>설정한 생년월일은 변경할 수 없습니다. 정확한 정보를 입력해주세요.</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="column" fxFlexFill>
+            <mat-form-field appearance="standard">
+                <mat-label>성별</mat-label>
+                <mat-select [(ngModel)]="userModel.gender">
+                    <mat-option value="M">남성</mat-option>
+                    <mat-option value="F">여성</mat-option>
+                </mat-select>
+                <mat-hint>설정한 성별은 변경할 수 없습니다. 정확한 정보를 입력해주세요.</mat-hint>
+            </mat-form-field>
+        </div> -->
+
+        <div style="height: 5vh;">
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="center center" class="mat-elevation-z19" 
+        style="height: 10vh; width: 100%;">
+            정책 동의 영역
+        </div>
+
+        <div fxFlexFill fxLayout="column" style="padding: 3vw;">
+            <button mat-raised-button color="primary" 
+            [style.opacity]="validateErr?'.3':'.99'"
+            (click)="onClickSubmit()">가입</button>    
+        </div>
+
+    </div>
+
+    <div style="margin: 5vw;">
+        <app-pdf-link [pageNo]="16" title="회원가입 page">
+        </app-pdf-link>
+    </div>
+
+    <!-- <app-pdf-view [pageNo]="16" title="회원가입 page"></app-pdf-view> -->
+</app-page-container>

@@ -1,0 +1,88 @@
+<app-page-container fxLayout="column" fxLayoutAlign="center center">
+
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1rem" style="width: 300px;">
+        <div class="header-mo" fxLayout="row" fxLayoutAlign="center center" style="margin: 5vh 0;">
+            <div class="overlap-group">
+                <img class="logo" [src]="siteModel.logoUrl" style="width: 300px; height: 72px; object-fit: contain;">
+            </div>
+        </div>
+        <div class="login-title">
+            로그인
+        </div>
+        <div *ngIf="siteModel.accountType === 'email'" [@fadeIn] style="width: 100%;">
+            <mat-form-field appearance="standard" style="width: 100%;">
+                <mat-label>E-mail</mat-label>
+                <input matInput [(ngModel)]="userModel.authId">
+            </mat-form-field>
+        </div>
+        <div *ngIf="siteModel.accountType === 'id'" [@fadeIn] style="width: 100%;">
+            <mat-form-field appearance="standard" style="width: 100%;">
+                <mat-label>ID</mat-label>
+                <input matInput [(ngModel)]="userModel.authId">
+            </mat-form-field>
+        </div>
+        <div style="width: 100%;">
+            <mat-form-field appearance="standard" style="width: 100%;">
+                <mat-label>PASSWORD</mat-label>
+                <input matInput [(ngModel)]="userModel.passwd">
+            </mat-form-field>
+
+        </div>
+        <div fxLayout="row" fxLayoutGap="2vw" fxLayoutAlign="start center" style="width: 300px;">
+            <div>
+                <mat-checkbox [(ngModel)]="rememberMe">
+                    E-mail저장
+                </mat-checkbox>
+            </div>
+            <div>
+                <button mat-stroked-button (click)="onClickSignup()">회원가입</button>
+
+            </div>
+            <div>
+                <button mat-stroked-button (click)="onClickPasswd()">PW 찾기</button>
+            </div>
+        </div>
+        <div style="width: 100%;">
+            <button mat-raised-button color="primary" style="width: 100%;" (click)="onClickSubmit()">로그인</button>
+
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" style="width: 100%;" class="naver-wrap1">
+            <div id="naverIdLogin" style="visibility: hidden;">
+                <!-- <img src="https://static.nid.naver.com/oauth/big_g.PNG" width=320> -->
+            </div>
+            <img src="https://static.nid.naver.com/oauth/big_g.PNG" width=300 height="49" style="cursor: pointer;"
+            (click)="onClickNaverLogin()"
+            >
+
+            <!-- <div id="naverIdLogin" style="width: 300px;">
+                네이버로 로그인하기
+            </div> -->
+
+            <!-- <button mat-raised-button style="width: 100%;" (click)="onClickSns('facebook')">SNS 로그인</button> -->
+        </div>
+        <div style="width: 100%;">
+            <a id="kakao-login-btn" style="width: 300px;"></a>
+            <!-- <button mat-raised-button  style="width: 100%;" (click)="onClickSns('naver')">SNS 로그인</button> -->
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" style="width: 100%;" class="google-wrap">
+            <button mat-stroked-button style="width: 100%;" (click)="onClickGoogle()">
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <img src="assets/svg/auth/google.svg">
+                    <div style="width: 100%;" class="google-text cu-center">
+                        Google 계정으로 로그인
+                    </div>
+                </div>
+            </button>
+
+
+            <!-- <button mat-raised-button style="width: 100%;" (click)="onClickSns('facebook')">SNS 로그인</button> -->
+        </div>
+    </div>
+
+
+    <app-pdf-link [pageNo]="7"></app-pdf-link>
+
+    <!-- <app-pdf-view [pageNo]="7" title="login page"></app-pdf-view> -->
+
+
+</app-page-container>

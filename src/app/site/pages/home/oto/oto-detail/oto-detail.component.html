@@ -1,0 +1,60 @@
+<app-page-title-back>
+    1:1 문의
+</app-page-title-back>
+
+<app-page-container>
+
+    <div *ngIf="model" [@fadeIn]>
+        <div fxLayout="row" class="bd-top bd-bottom">
+            <div fxFlex="100%" fxLayout="row">
+                <div class="cell-hc">
+                    제목
+                </div>
+                <div class="center-v cell">
+                    {{model.title}}
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" class="bd-bottom">
+            <div fxFlex="100%" fxLayout="row">
+                <div class="cell-hc">
+                    질문유형
+                </div>
+                <div class="center-v cell">
+                    {{model.questionClassModel?.question}}
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" class="bd-bottom">
+            <div fxFlex="100%" fxLayout="row">
+                <div class="cell-hc">
+                    문의내용
+                </div>
+                <div class="center-v cell" style="white-space: pre-wrap; text-align:left;">
+                    {{model.question}}
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" class="bd-bottom">
+            <div fxFlex="100%" fxLayout="row">
+                <div class="cell-hc">
+                    답변내용
+                </div>
+                <div class="center-v cell" style="white-space: pre-wrap; text-align:left;">
+                    {{model.answer}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="3vw" style="margin-top: 2vh;">
+            <button mat-stroked-button color="primary" style="width: 140px;" (click)="onClickOk()">
+                확인
+            </button>
+        </div>
+    </div>
+    
+    <!-- <app-pdf-link [pageNo]="95"></app-pdf-link> -->
+
+</app-page-container>

@@ -1,0 +1,46 @@
+<app-home-toolbar>
+    <span *ngIf="galleryModel" [@fadeIn]>
+        {{galleryModel.name}}
+    </span>
+    갤러리
+</app-home-toolbar>
+<app-page-container>
+
+    <app-global-search-box>
+    </app-global-search-box>
+    
+    <div *ngIf="galleryModel" [@fadeIn]>
+
+
+
+        <div fxLayout="row" fxLayoutGap="1vw">
+            <div>
+                <img *ngIf="galleryModel.imgUrl" [@fadeIn] [src]="galleryModel.imgUrl"
+                    style="width: 150px; height: 100px;">
+            </div>
+            <div>
+                <div style="font-size: 1.5rem;">
+                    {{galleryModel.name}}
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 2vh 0;">
+            <nav mat-tab-nav-bar>
+                <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link"
+                    [queryParams]="{galleryIdx: galleryModel.objectId}" routerLinkActive #rla="routerLinkActive"
+                    [active]="rla.isActive">
+                    {{link.label}}
+                </a>
+            </nav>
+
+            <router-outlet></router-outlet>
+
+        </div>
+
+    </div>
+
+    <app-pdf-link [pageNo]="30" title="gallery-home"></app-pdf-link>
+
+
+</app-page-container>

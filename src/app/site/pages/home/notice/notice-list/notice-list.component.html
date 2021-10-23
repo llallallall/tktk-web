@@ -1,0 +1,98 @@
+<app-home-toolbar>
+    공지사항
+</app-home-toolbar>
+
+<app-page-container>
+
+    <div>
+
+        <table [@fadeIn] class="table-rows novline tcenter" style="min-width: 500px;">
+            <thead>
+                <tr>
+                    <th *ngFor="let item of columns">
+                        <div fxLayout="row" fxLayoutAlign="center center">
+                            <div>
+                                {{item.name}}
+                            </div>
+                            <!-- <img *ngIf="item.icon" [@fadeIn] [src]="item.icon"
+                                style="width: 20px; height: 20px; cursor: pointer;"
+                                (click)="onClickOrder(item)"
+                                > -->
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of itemsTop" class="list-item" (click)="onClickItem(item)"
+                    style="background-color: #F7F7F7;" (mouseleave)="item.uiVariable.isHover=false">
+                    <td>
+                        공지사항
+                    </td>
+                    <td>
+                        {{item.title}}
+                    </td>
+                    <td>
+                        관리자
+                    </td>
+                    <td>
+                        {{item.createdAtDate | date:'yyyy-MM-dd'}}
+                    </td>
+                    <td>
+                        <span>
+                            {{item.viewCount || 0}}
+                        </span>
+                    </td>
+                    <td>
+                        <span *ngIf="item.evalData" [@fadeIn]>
+                            {{item.evalData.cntLike || 0}}
+                        </span>
+                    </td>
+                </tr>
+
+                <tr *ngFor="let item of items" class="list-item" (click)="onClickItem(item)"
+                    (mouseleave)="item.uiVariable.isHover=false">
+                    <td>
+                        공지사항
+                    </td>
+                    <td>
+                        {{item.title}}
+                    </td>
+                    <td>
+                        관리자
+                    </td>
+                    <td>
+                        {{item.createdAtDate | date:'yyyy-MM-dd'}}
+                    </td>
+                    <td>
+                        <span>
+                            {{item.viewCount || 0}}
+                        </span>
+                    </td>
+                    <td>
+                        <span *ngIf="item.evalData" [@fadeIn]>
+                            {{item.evalData.cntLike || 0}}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- <app-items-load-guide [items]="items" [isLoading]="isLoading">
+        </app-items-load-guide>         -->
+
+        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutGap="32px">
+            </div>
+
+            <mat-paginator [showFirstLastButtons]="true" [length]="qp.totalCount" [pageSize]="qp.pageSize"
+                [pageIndex]="qp.pageNo" [pageSizeOptions]="[10, 30, 50, 100]" (page)="onPageEvent($event)"
+                style="margin: 0.5rem 0;">
+            </mat-paginator>
+        </div>
+    </div>
+
+
+    <app-pdf-link [pageNo]="79"></app-pdf-link>
+
+
+</app-page-container>

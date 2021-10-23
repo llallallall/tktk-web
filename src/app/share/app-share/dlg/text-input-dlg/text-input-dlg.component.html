@@ -1,0 +1,16 @@
+<!-- <h1 mat-dialog-title *ngIf="data.title" class="text-danger"> {{data.title}}</h1> -->
+<div mat-dialog-content>
+
+    <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label *ngIf="data.label">{{data.label}}</mat-label>
+        <input matInput [placeholder]="data.placeholder" 
+        style="line-height: 1.4;"
+        [(ngModel)]="value">
+    </mat-form-field>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px" style="margin-top: 32px;">
+    <button mat-raised-button style="width: 100px;" (click)="onNoClick()">취소</button>
+    <button mat-raised-button style="width: 100px;" [color]="data.okBtnColor"
+        (click)="onClickOk()">{{okBtnName}}</button>
+</div>

@@ -1,0 +1,10 @@
+
+
+<app-palist-item-all *ngIf="mediaType==='all'" [@fadeIn]
+[model]="model"></app-palist-item-all>
+
+<app-palist-item-img *ngIf="mediaType==='image'" [@fadeIn]
+[model]="model"></app-palist-item-img>
+
+<app-palist-item-video *ngIf="mediaType==='video'" [@fadeIn]
+[model]="model"></app-palist-item-video>

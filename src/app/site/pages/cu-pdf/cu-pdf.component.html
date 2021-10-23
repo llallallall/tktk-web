@@ -1,0 +1,31 @@
+<app-page-title-back (on_click_back)="onClickBack()" [hasBack]="false">
+
+    <span *ngIf="title">
+        {{title}}
+    </span>
+    
+
+    <div right-menu>
+        <div>
+
+            <button mat-icon-button (click)="onClickNav(true)">
+                <mat-icon>navigate_before</mat-icon>
+            </button>
+            <input matInput  
+            [(ngModel)]="pageNo"
+            style="width: 20px; padding: .5rem;">
+           <button mat-icon-button (click)="onClickNav(false)">
+                <mat-icon>navigate_next</mat-icon>
+            </button>
+            <!-- <button mat-icon-button>
+                <mat-icon>home</mat-icon>
+            </button> -->
+        </div>
+    </div>
+</app-page-title-back>
+
+<app-page-container>
+
+    <pdf-viewer src="/assets/pdf/mobileweb.pdf" [original-size]="false" [page]="pageNo" [show-all]="false"></pdf-viewer>
+
+</app-page-container>

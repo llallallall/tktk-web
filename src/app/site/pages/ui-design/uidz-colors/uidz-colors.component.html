@@ -1,0 +1,37 @@
+<app-page-container>
+
+    <div fxLayout="row" fxLayoutGap="1vw" fxLayoutAlign="start center">
+        <div class="cu-page-title-text" style="width: 200px;">
+            Color Styles
+        </div>
+
+        <div style="width: 200px; border: 1px solid var(--primary-org); padding: 1vw;">
+            <app-ui-type-picker style="width: 200px;" [code]="uiType" (on_changed)="on_changed_uiType($event)">
+            </app-ui-type-picker>
+        </div>
+
+    </div>
+
+    <div fxLayout="row">
+        <div fxLayout="column" fxLayoutGap="1vw" style="margin: 2vw; width: 30vw;">
+            <app-color-item *ngFor="let item of items" [model]="item"
+            (on_changed)="on_changed_color($event)"
+            > </app-color-item>    
+        </div>
+
+        <div style="padding: 2vw;">
+            <div fxLayout="row" fxLayoutGap="1vw">
+                <button mat-raised-button>Basic</button>
+                <button mat-raised-button color="primary">Primary</button>
+                <button mat-raised-button color="accent">Accent</button>
+                <button mat-raised-button color="warn">Warn</button>
+    
+            </div>
+        </div>
+    
+    </div>
+
+
+
+
+</app-page-container>

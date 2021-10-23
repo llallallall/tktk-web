@@ -1,0 +1,32 @@
+<div class="mat-elevation-z3" style="padding: 2vw;">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="20px">
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <!-- <div class="cu-search-filter-label-text" style="width: 100px;">검색어</div> -->
+                <div class="cu-grid-box-field" style="width: 100px;">
+                    <app-search-user-filter [items]="itemsSearch" [code]="qp.searchKey"
+                    [pickerMode]="false"
+                        (on_changed)="on_changed_searchKey($event)">
+                    </app-search-user-filter>
+                </div>
+                <div *ngIf="qp.searchKey !== 'all'" [@fadeIn] class="cu-grid-box-field"
+                    style="width: 210px; margin-left: 20px;">
+                    <input class="cu-grid-input" [disabled]="qp.searchKey === 'all'" placeholder="검색어를 입력해 주세요" matInput
+                        name="searchWord" maxlength="20" [(ngModel)]="qp.searchWord">
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
+            <button 
+            *ngIf="qp.searchWord" [@fadeIn]
+            mat-raised-button color="primary" (click)="onClickSearch()" style="min-width: 100px;">
+                검색
+            </button>
+            <!-- <button mat-raised-button color="accent" (click)="onClickClear()" style="min-width: 100px;">
+                초기화
+            </button> -->
+        </div>
+
+    </div>
+</div>

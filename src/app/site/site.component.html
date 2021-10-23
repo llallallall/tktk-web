@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+
+<div *ngIf="siteModel">
+  <router-outlet></router-outlet>
+</div>
+ 
+<div *ngIf="!siteModel">
+  <div
+    *ngIf="isLoading"
+    [@fadeIn]
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    style="height: 80vh"
+  >
+    <div
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      fxLayoutGap="1vh"
+      style="opacity: 0.5"
+    >
+      <mat-spinner diameter="20"> </mat-spinner>
+      <div>잠시만 기다려 주세요 ...</div>
+    </div>
+  </div>
+  <div
+    *ngIf="!isLoading"
+    [@fadeIn]
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    style="height: 80vh"
+  >
+    <div
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      fxLayoutGap="1vh"
+      style="opacity: 0.5"
+    >
+      <div>site component 항목이 없습니다.</div>
+    </div>
+  </div>
+</div>

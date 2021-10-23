@@ -1,0 +1,101 @@
+<div class="header-mo" fxLayout="row" fxLayoutAlign="center center" style="margin: 5vh 0;">
+    <div class="overlap-group">
+        <img class="logo" [src]="siteModel.logoUrl" style="width: 300px; height: 72px; object-fit: contain;">
+    </div>
+</div>
+
+
+<app-page-container fxLayout="column" fxLayoutAlign="center center">
+
+    <div *ngIf="userModel" [@fadeIn] fxLayout="column" fxLayoutGap="1rem" style="max-width: 600px;min-width: 420px;">
+        <div class="page-title cu-center">
+            내정보
+        </div>
+        <div *ngIf="siteModel.accountType === 'id'" [@fadeIn] fxLayout="column">
+            <mat-form-field appearance="standard">
+                <mat-label>ID</mat-label>
+                <input matInput [(ngModel)]="userModel.userId" readonly>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="column">
+            <mat-form-field appearance="standard">
+                <mat-label>닉네임</mat-label>
+                <input matInput [(ngModel)]="userModel.nickname" readonly>
+            </mat-form-field>
+        </div>
+
+
+        <div fxLayout="column">
+            <mat-form-field appearance="standard">
+                <mat-label>이메일 주소</mat-label>
+                <input matInput [(ngModel)]="userModel.email" readonly>
+            </mat-form-field>
+        </div>
+
+        <mat-card fxLayout="row" 
+        fxLayoutAlign="start center"
+        fxLayoutGap="5vw">
+            <div>
+                본인인증
+            </div>
+            <div *ngIf="userModel.identityVerified !== 'Y'" [@fadeIn]>
+                <button mat-stroked-button
+                (click)="onClickVerify('identityVerified')"
+                >미인증</button>
+            </div>
+            <div *ngIf="userModel.identityVerified === 'Y'" [@fadeIn]>
+                휴대폰 인증
+            </div>
+        </mat-card>
+
+        <mat-card fxLayout="row" 
+        fxLayoutAlign="start center"
+        fxLayoutGap="5vw">
+            <div>
+                성인인증
+            </div>
+            <div *ngIf="userModel.isAdult" [@fadeIn]>
+                <div *ngIf="!userModel.adultVerified" [@fadeIn]>
+                    <button mat-stroked-button
+                    (click)="onClickVerify('adultVerified')"
+                    >미인증</button>
+                </div>    
+                <div *ngIf="userModel.adultVerified" [@fadeIn]>
+                    휴대폰 인증
+                </div>    
+            </div>
+            <div *ngIf="!userModel.isAdult" [@fadeIn]>
+                비 성인 회원
+            </div>
+
+        </mat-card>
+
+        <mat-card style="height: 200px;">
+            활동지수
+        </mat-card>
+
+        <div fxLayout="column" style="padding: 1vw 3vw;" fxLayoutGap="1vw">
+            <button mat-raised-button color="primary" (click)="onClickEdit()">정보수정</button>
+            <button mat-stroked-button color="warn" (click)="onClickWithdrawn()">회원탈퇴
+            </button>
+            <button mat-stroked-button (click)="onClickLogout()">로그아웃
+            </button>
+        </div>
+
+        <div fxLayout="column" style="padding: 1vw 3vw;">
+        </div>
+
+
+    </div>
+
+
+    <div style="margin: 5vw;">
+        <app-pdf-link [pageNo]="70">
+        </app-pdf-link>
+
+        <!-- <app-pdf-view [pageNo]="70" title="내정보 page">
+        </app-pdf-view> -->
+    </div>
+
+</app-page-container>

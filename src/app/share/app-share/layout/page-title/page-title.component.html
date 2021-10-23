@@ -1,0 +1,8 @@
+<div 
+class="title"
+fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center" style="width: 100%; min-width: 500px;">
+    <div>
+        {{title}}
+    </div>
+    <mat-spinner *ngIf="isLoading" [@fadeIn] diameter="14"></mat-spinner>
+</div>

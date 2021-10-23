@@ -1,0 +1,78 @@
+<div style="max-width: 500px;">
+    <mat-tab-group mat-stretch-tabs class="mat-elevation-z0">
+        <mat-tab label="이미지 추가">
+            <div sltyle="height: 100px; margin: 20px;  padding: 8px;">
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1vw"
+                    sltyle="height: 100px; margin: 20px; padding: 8px;">
+
+                    <div style="padding: 8px; width: 90%;">
+                        <input class="cu-grid-input cu-grid-input-bd" style="width: 90%;" name="name" maxlength="128"
+                        placeholder="게시글 제목을 입력하세요." [value]="fileName">    
+                    </div>
+
+
+                    <!-- <app-grid-input-box style="width: 100%;">
+                        <input matInput class="cu-grid-input" style="width: 100%;" name="name" maxlength="128"
+                            placeholder="게시글 제목을 입력하세요." [value]="fileName">
+                    </app-grid-input-box> -->
+
+                    <button style="width: 120px; height: 32px;" mat-flat-button color="primary"
+                        [disabled]="!currentFile" (click)="onClickAddImageUpload()">
+                        추가
+                    </button>
+                </div>
+
+                <input type="file" id="fileInput" placeholder="파일을 선택해 주세요" (change)="selectFile($event)"
+                    name="fileInput" />
+            </div>
+        </mat-tab>
+        <mat-tab label="이미지 링크 추가">
+            <div>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1vw">
+
+                    <div style="padding: 8px; width: 90%;">
+                        <input class="cu-grid-input cu-grid-input-bd" style="width: 90%;" name="name" maxlength="128"
+                        placeholder="링크 URL을 입력하세요." [(ngModel)]="imageUrl">    
+                    </div>
+
+                    <!-- <app-grid-input-box style="width: 100%;">
+                        <input matInput class="cu-grid-input" style="width: 100%;" name="name" maxlength="128"
+                            placeholder="링크 URL을 입력하세요." [(ngModel)]="imageUrl">
+                    </app-grid-input-box> -->
+
+                    <button style="width: 120px; height: 32px;" mat-flat-button color="primary"
+                    [disabled]="!imageUrl"
+                    (click)="onClickAddImageUrl()"
+                    >
+                        추가
+                    </button>
+                </div>
+            </div>
+
+        </mat-tab>
+        <mat-tab label="유투부 추가">
+            <div>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1vw">
+
+                    <div style="padding: 8px; width: 90%;">
+                        <input class="cu-grid-input cu-grid-input-bd" style="width: 90%;" name="name" maxlength="128"
+                        placeholder="유튜브 동영상 아이디를 입력하세요." [(ngModel)]="youtubeId">    
+                    </div>
+
+                    <!-- <app-grid-input-box style="width: 100%;">
+                        <input matInput class="cu-grid-input" style="width: 100%;" name="name" maxlength="128"
+                            placeholder="유튜브 동영상 아이디를 입력하세요." [(ngModel)]="youtubeId">
+                    </app-grid-input-box> -->
+
+                    <button style="width: 120px; height: 32px;" 
+                    [disabled]="!youtubeId"
+                    mat-flat-button color="primary"
+                    (click)="onClickAddVideo()"
+                    >
+                        추가
+                    </button>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

@@ -1,0 +1,115 @@
+<app-page-container>
+
+    <div *ngIf="me" [@fadeIn] fxLayout="column" fxLayoutGap="1rem" style="max-width: 600px;">
+        <div>
+            회원탈퇴
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+
+            <ul fxLayout="column" fxLayoutGap=".5rem">
+                <li>
+                    회원탈퇴를하시면,
+                    <br>
+                    아이디와 개인정보는 즉시 삭제되고
+                    <br>
+                    복구가 불가능합니다.
+                </li>
+                <li>
+                    회원 탈퇴 시 회원 아이디로
+                    <br>
+                    작성된 게시물과 댓글은
+                    <br>
+                    자동으로 삭제되지 않습니다.
+                </li>
+                <li>
+                    회원 탈퇴후 7일이내에는
+                    <br>
+                    동일 이메일로는 회원가입이 제한됩니다.
+                </li>
+            </ul>
+
+        </div>
+
+        <div>
+            <div fxLayout="row" class="bd-top bd-bottom">
+                <div fxFlex="100%" fxLayout="row">
+                    <div class="cell-hc">
+                        닉네임
+                    </div>
+                    <div class="center-v cell">
+                        {{me.nickname}}
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="row" class="bd-bottom">
+                <div fxFlex="100%" fxLayout="row">
+                    <div class="cell-hc">
+                        이메일
+                    </div>
+                    <div class="center-v cell">
+                        {{me.email}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="5vw">
+            <button mat-raised-button color="warn" 
+            style="width: 100%;"
+            (click)="onClickSubmit()">
+                탈퇴
+            </button>
+            <button mat-raised-button color="accent" 
+            style="width: 100%;"
+            (click)="onClickCancel()">
+                취소
+            </button>
+        </div>
+
+        <!-- 
+        <div fxLayout="column">
+            <mat-form-field appearance="standard">
+                <mat-label>비밀번호</mat-label>
+                <input matInput [(ngModel)]="me.passwd" placeholder="PASSSWORD">
+                <mat-hint>
+                    최대20자까지입력가능20자초과시입력방지영문,숫자외텍스트입력불가
+                </mat-hint>
+            </mat-form-field>
+        </div>
+
+
+        <div fxLayout="column" style="padding: 1vw 3vw;">
+            <button mat-raised-button color="primary" (click)="onClickSubmit()">
+                확인
+            </button>
+            <mat-hint>
+                정상루트터치시 회원탈퇴페이지진입
+                <br>
+                예외상황Alert
+            </mat-hint>
+        </div> -->
+
+
+        <!-- 
+
+        
+        
+        탈퇴
+        취소
+
+        slrspdla123cj*********@n****.com1234
+        
+        회원탈퇴안내가이드화면과내용동일회원정보닉네임, 이메일노출
+        탈퇴터치시 회원탈퇴 레이어 생성
+        취소터치시 메인페이지로 이동 -->
+
+    </div>
+
+
+
+    <div style="margin: 5vw;">
+        <app-pdf-view [pageNo]="100" title="회원탈퇴 page">
+        </app-pdf-view>
+    </div>
+</app-page-container>

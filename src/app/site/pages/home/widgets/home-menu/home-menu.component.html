@@ -1,0 +1,45 @@
+<div style="width: 250px;">
+
+    <div *ngIf="!isLoading">
+        <div *ngFor="let item of itemsCategory">
+            <app-hm-category *ngIf="item.display === 'Y'"
+            [model]="item"
+            >
+            </app-hm-category>
+        </div>
+        <button mat-raised-button style="width: 100%; height: 48px;"
+        (click)="onClickNotice()"
+        >
+            공지사항
+        </button>
+        <button mat-raised-button style="width: 100%; height: 48px;"
+        (click)="onClickCenter()"
+        >
+            고객센터
+        </button>
+        <button *ngIf="me" [@fadeIn]
+        mat-raised-button style="width: 100%; height: 48px;"
+        (click)="onClickLogout()"
+        >
+            로그아웃
+        </button>
+
+    </div>
+    <div *ngIf="isLoading" [@fadeIn]>
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1vh" style="opacity: .5;">
+            <mat-spinner diameter="20">
+            </mat-spinner>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div style="margin: 5vw;">
+    <app-pdf-link [pageNo]="23" title="side menu">
+    </app-pdf-link>
+</div>
+
+<!-- <pdf-viewer src="/assets/pdf/mobileweb.pdf" [original-size]="false" page="23" [show-all]="false"
+    (click)="onClickPdf(23)"></pdf-viewer> -->

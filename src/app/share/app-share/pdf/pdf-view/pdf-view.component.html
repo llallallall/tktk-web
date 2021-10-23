@@ -1,0 +1,11 @@
+    <div style="margin: 5vw;">
+        <pdf-viewer src="/assets/pdf/mobileweb.pdf" [original-size]="false" [page]="pageNo" [show-all]="false"
+            [zoom]="1.0"></pdf-viewer>
+    </div>
+
+
+    <div style="position: absolute; bottom: 10vh; padding: 1vw; cursor: pointer; " class="mat-elevation-z19"
+    (click)="onClickPdf()"
+    >
+        {{title}}
+    </div>

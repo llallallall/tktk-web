@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" style="height: 64px; width: 100%;">
+    <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%; margin: 0 1vw;">
+        <div fxLayout="row" fxLayoutAlign="start center" style="width: 100%;">
+            <div>
+                <button *ngIf="!opened" [@fadeIn] mat-icon-button (click)="onClickSideNav()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div>
+                <ng-content></ng-content>
+            </div>
+        </div>
+
+
+        <div>
+            <ng-content select="[right-menu]"></ng-content>
+            <!-- <app-my-account></app-my-account> -->
+        </div>
+    </div>
+</mat-toolbar>
+<mat-divider></mat-divider>
+
+

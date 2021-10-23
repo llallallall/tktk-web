@@ -1,0 +1,36 @@
+<app-post-menu [code]="mediaType" (on_changed)="on_changed_mediaType($event)"
+(on_click_edit)="on_click_edit($event)"
+></app-post-menu>
+
+<div style="margin: 2vw 0;">
+
+    <div *ngFor="let item of itemsNotice">
+        <app-palist-item-notice [model]="item" 
+        (click)="onClickItem(item)"></app-palist-item-notice>
+    </div>   
+
+    <div *ngFor="let item of items">
+        <app-pa-list-item [model]="item" 
+        [mediaType]="mediaType"
+        (click)="onClickItem(item)"></app-pa-list-item>
+    </div>    
+    <!-- <div *ngIf="mediaType === 'all'">
+        <div *ngFor="let item of items">
+            
+        </div>
+    </div>
+    <div *ngIf="mediaType === 'image'">
+        <div *ngFor="let item of items">
+            <app-pa-list-item [model]="item" (click)="onClickItem(item)"></app-pa-list-item>
+        </div>
+    </div>
+    <div *ngIf="mediaType === 'all'">
+        <div *ngFor="let item of items">
+            <app-pa-list-item [model]="item" (click)="onClickItem(item)"></app-pa-list-item>
+        </div>
+    </div> -->
+</div>
+
+<mat-paginator [showFirstLastButtons]="true" [length]="qp.totalCount" [pageSize]="qp.pageSize" [pageIndex]="qp.pageNo"
+    [pageSizeOptions]="[10, 20, 50, 100]" (page)="onPageEvent($event)" style="margin: 0.5rem 0;">
+</mat-paginator>

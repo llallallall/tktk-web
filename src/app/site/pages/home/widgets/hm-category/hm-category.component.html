@@ -1,0 +1,24 @@
+<mat-expansion-panel (opened)="on_opened()" (afterExpand)="on_afterExpand()">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{model.name}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div *ngIf="items.length === 0">
+        <mat-spinner *ngIf="isLoading" diameter="20">
+        </mat-spinner>
+    </div>
+    <div *ngIf="items.length > 0"
+        fxLayout="column" fxLayoutGap=".5rem"
+        >
+        <!-- {{items.length}} -->
+        <div *ngFor="let item of items">
+            <div *ngIf="item.display === 'Y'" style="font-weight: normal; cursor: pointer;"
+            (click)="onClickItem(item)"
+            >
+                {{item.name}}
+            </div>
+        </div>
+    </div>
+</mat-expansion-panel>

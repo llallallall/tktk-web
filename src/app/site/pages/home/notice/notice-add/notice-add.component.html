@@ -1,0 +1,35 @@
+<app-page-title-back>
+    <span *ngIf="galleryModel">
+        {{galleryModel.name}} 갤러리 공지 작성
+    </span>
+</app-page-title-back>
+
+
+
+<app-page-container>
+
+    <app-notice-edit [model]="model"
+    (on_editor_created)="on_editor_created($event)"
+    ></app-notice-edit>
+
+    <div>
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="3vw" style="margin-top: 10vh;">
+            <button mat-raised-button color="primary" style="width: 140px;"
+                [style.opacity]="model.validateErr?'.5':'.99'" (click)="onClickSubmit()">
+                등록
+            </button>
+            <button mat-raised-button color="accent" style="width: 140px;" (click)="onClickCancel()">
+                취소
+            </button>
+        </div>
+    </div>
+
+    <div style="margin: 30vh 0;">
+        <app-pdf-link [pageNo]="64" title="post-edit"></app-pdf-link>
+        <div>
+            <p>post-add works!</p>
+        </div>
+
+    </div>
+
+</app-page-container>

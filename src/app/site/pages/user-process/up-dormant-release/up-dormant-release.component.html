@@ -1,0 +1,23 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+
+    <div *ngIf="!isLoading" [@fadeIn] fxLayout="column" fxLayoutAlign="center center" style="width: 50vw; min-width: 300px; margin: 3vh 0;">
+        <mat-divider style="width: 100%;"></mat-divider>
+        <div style="margin: 5vh 0;">
+            휴면 계정이 해제 되었습니다.
+        </div>
+        <mat-divider style="width: 100%;"></mat-divider>
+
+        <div>
+            <button mat-stroked-button color="primary" style="width: 320px; margin: 2vh 0;" (click)="onClickSubmit()">
+                홈으로
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<app-pdf-link [pageNo]="105"></app-pdf-link>
+<a href="https://www.figma.com/file/5McWa4BMFFXRDM4qfsklr4/tikitaka-user?node-id=250%3A19911">figma</a>

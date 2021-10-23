@@ -1,0 +1,49 @@
+
+<div fxLayout="column" fxLayoutAlign="center center"
+style="width: 100%; height: 100%;">
+    <div>
+        <div fxLayout="row wrap">
+            <div *ngFor="let item of items">
+                <mat-card class="mat-elevation-z10" style="width: 200px;"
+                (click)="onClickItem(item)"
+                >
+                    <mat-card-header>
+                        <mat-card-title>
+                            {{item.siteId}}
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            {{item.uiType}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <!-- <mat-card-content>
+                        Text content
+                    </mat-card-content>
+                    <mat-card-footer>
+                        Footer
+                    </mat-card-footer> -->
+                </mat-card>
+            </div>
+        </div>        
+    </div>
+</div>
+
+
+
+<div *ngIf="items.length === 0" [@fadeIn]>
+    <div *ngIf="isLoading" [@fadeIn] fxLayout="row" fxLayoutAlign="center center" style="height: 80vh;">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1vh" style="opacity: .5;">
+            <mat-spinner diameter="20">
+            </mat-spinner>
+            <div>
+                잠시만 기다려 주세요 ...
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!isLoading" [@fadeIn] fxLayout="row" fxLayoutAlign="center center" style="height: 80vh;">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1vh" style="opacity: .5;">
+            <div>
+                항목이 없습니다.
+            </div>
+        </div>
+    </div>
+</div>

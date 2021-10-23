@@ -1,0 +1,18 @@
+<!-- <h1 mat-dialog-title *ngIf="data.title" class="text-danger"> {{data.title}}</h1> -->
+<div mat-dialog-content>
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>비밀번호</mat-label>
+        <input matInput placeholder="비밀번호 4자리" 
+        maxlength="4"
+        style="line-height: 1.4;"
+        [(ngModel)]="passwd">
+    </mat-form-field>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px" style="margin-top: 0px;">
+    <!-- <button mat-raised-button style="width: 100px;" (click)="onNoClick()">취소</button> -->
+    <button mat-raised-button style="width: 100px;" color="primary"
+    [disabled]="!passwd"
+        (click)="onClickOk()">{{okBtnName}}</button>
+</div>

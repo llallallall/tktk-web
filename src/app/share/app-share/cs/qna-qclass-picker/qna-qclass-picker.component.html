@@ -1,0 +1,15 @@
+<mat-select *ngIf="!isLoading" [@fadeIn]
+class="form-control" 
+placeholder="질문유형 선택"
+name="code" [(ngModel)]="code" (ngModelChange)="onModelChange($event)"
+    [disabled]="disabled">
+    <mat-option *ngIf="!pickerMode" value="all">
+        전체
+    </mat-option>
+    <mat-option *ngFor="let item of items" [value]="item.objectId">{{item.question}}</mat-option>
+</mat-select>
+
+<div *ngIf="isLoading" [@fadeIn]>
+    <mat-spinner diameter="20">
+    </mat-spinner>
+</div>

@@ -1,0 +1,20 @@
+<div>
+    <swiper [spaceBetween]="0" [centeredSlides]="true" [slidesPerView]="1" [autoplay]=" {
+      delay: 3000,
+      disableOnInteraction: false,
+      reverseDirection: false
+    }" [pagination]="{
+      clickable: true
+    }" [navigation]="true" class="mySwiper">
+        <ng-template swiperSlide *ngFor="let item of items; let ix=index;">
+            <!-- <div (click)="onClickItem(ix,item)">
+                <img [src]="item.imgPath" alt="" style="width: 600px; height: 100px">
+            </div> -->
+        </ng-template>
+        <!-- <ng-template swiperSlide>
+            <div>
+                <img src="/assets/images/banner/ps_banner2.jpg" alt="" style="width: 600px; height: 100px">
+            </div>
+        </ng-template> -->
+    </swiper>
+</div>

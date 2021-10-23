@@ -1,0 +1,92 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: "Nanum Gothic", sans-serif;
+}
+
+@import "assets/css/figma-styleguide.css";
+@import "assets/css/figma-globals.css";
+@import "assets/css/material.scss";
+@import "assets/css/color.scss";
+@import "assets/css/tktk.scss";
+@import "assets/css/cu-picker.scss";
+@import "assets/css/cu-grid.scss";
+@import "assets/css/cu-text.scss";
+
+// .mat-progress-spinner circle,
+// .mat-spinner circle {
+//     stroke: #3fb53f;
+// }
+
+// .mat-form-field-infix {
+//     padding: 0.05em 0;
+//     border-top: 0.08em solid transparent;
+// }
+
+.cu-ilh {
+    line-height: 1.4;
+}
+
+.cu-grid-box-header {
+    background-color: var(--grey-box);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: var(--dark-grey);
+}
+
+.center-v {
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+}
+
+.center-h {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+}
+
+.cu-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.full-mat-dlg-modal {
+    mat-dialog-container {
+        padding: 0;
+    }
+}
+
+.err-dlg-modal {
+    mat-dialog-container {
+        padding: 0;
+    }
+}
+
+.cu-dlg-modal {
+    mat-dialog-container {
+        padding: 0;
+        // max-width: 100vw !important;
+    }
+}
+
+// .full-width-dialog .mat-dialog-container {
+//     max-width: 100vw !important;
+// }
+
+.dbg {
+    border: 1px solid rgba(0, 0, 0, .1);
+}

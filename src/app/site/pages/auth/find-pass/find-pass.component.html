@@ -1,0 +1,57 @@
+<div class="header-mo" fxLayout="row" fxLayoutAlign="center center">
+    <div class="overlap-group" style="margin: 3vh;">
+        <img class="logo" [src]="siteModel.logoUrl" style="width: 300px; height:72px; object-fit: contain;">
+    </div>
+</div>
+
+<mat-divider style="margin: 1vh 0;"></mat-divider>
+
+<app-page-container>
+    <div class="x02-mo-findpw screen">
+
+
+        <div class="search-for-password" fxLayout="column" fxLayoutAlign="center center">
+            <div class="frame-107">
+                <div class="text-847 valign-text-middle x14extrabold" fxLayout="row" fxLayoutAlign="center center"
+                    style="font-size: 14px; font-weight: bold;">
+                    비밀번호 찾기
+                </div>
+
+                <div class="email-form" style="margin: 1vh;">
+
+                    <mat-form-field appearance="outline" style="min-width: 320px; width: 50vw;">
+                        <mat-label>이메일 주소</mat-label>
+                        <input matInput placeholder="Placeholder"
+                        [(ngModel)]="model.email"
+                        >                        
+                        <mat-hint>가입할 때 등록한 메일 주소를 입력하시면 이메일로 비밀번호를 <br>전송합니다.</mat-hint>
+                    </mat-form-field>
+
+                </div>
+            </div>
+
+            <div style="margin: 3vh;">
+                <button *ngIf="!isLoading" [@fadeIn] mat-stroked-button color="primary" style="width: 320px;" (click)="onClickSubmit()">
+                    비밀번호 찾기
+                </button>
+                <mat-spinner *ngIf="isLoading" [@fadeIn] diameter="20"></mat-spinner>
+            </div>
+        </div>
+
+    </div>
+
+
+</app-page-container>
+
+<mat-divider style="margin: 1vh 0;"></mat-divider>
+
+<div>
+    <app-pdf-link [pageNo]="10"></app-pdf-link>
+    <a href="https://www.figma.com/file/5McWa4BMFFXRDM4qfsklr4/tikitaka-user?node-id=204%3A10373">
+        figma
+    </a>
+</div>
+
+
+
+<app-pdf-view [pageNo]="10"></app-pdf-view>

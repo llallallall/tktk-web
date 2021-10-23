@@ -1,0 +1,11 @@
+<div fxLayout="row">
+    <div *ngFor="let item of items">
+        <div style="border: 0px solid grey;">
+            <button mat-raised-button [color]="item.code===code?'primary':'basic'" style="border-radius: 0;"
+            (click)="onClickItem(item)"
+            >
+                {{item.name}}
+            </button>
+        </div>
+    </div>
+</div>

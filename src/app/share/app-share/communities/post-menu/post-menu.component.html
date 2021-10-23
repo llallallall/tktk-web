@@ -1,0 +1,4 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" style="margin: 1vw 0;">
+    <app-post-list-type-picker [code]="code" (on_changed)="on_changed.emit($event)"></app-post-list-type-picker>
+    <button mat-stroked-button (click)="onClickEdit()">글쓰기</button>
+</div>

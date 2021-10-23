@@ -1,0 +1,10 @@
+
+<div #dlg_container>
+    <app-cu-date-picker
+    [dateType]="dateType"
+    [dateStart]="dateStart"
+    [dateEnd]="dateEnd"
+    (on_cancel)="onCancel()"
+    (on_changed)="onChanged($event)"
+    ></app-cu-date-picker>
+</div>

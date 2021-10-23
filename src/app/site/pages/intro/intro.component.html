@@ -1,0 +1,72 @@
+<div class="wrapper">
+    <div class="left-banner">
+        <img src="/assets/images/banner/banner-sample-left.png">
+    </div>
+    <div class="main">
+            <div class="banner-slider">
+                <img src="/assets/images/banner/banner-sample-top.png">
+            </div>
+
+            <div class="tag-area" >
+                <p *ngFor="let item of tags">{{item}}</p>
+            </div>
+
+            <div class="category">
+                <div class="sections">
+                    <span class="current-menu">HOT 게시글</span>
+                    <span class="hot-section"> 인기</span>
+                    <span class="recent-section">최신</span>
+                </div>
+                <div class="show-more">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="background-color:#5E83E2;padding:0;" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+                    <span>더보기</span>
+                </div>
+            </div>
+
+            <div class="article" *ngFor="let item of articles">
+               
+                <div class="article-thumb">
+                    <img src="{{item.thumbnailUrl }}">
+                </div>
+                <div class="article-body">
+                    <p class="article-body-title">{{ item.title }} </p>
+                    <p class="article-body-board">{{ item.boardName }} </p>
+                    <p class="article-body-regdate">{{ item.regDate }}</p>
+                </div>
+               
+    
+
+            </div>
+
+    </div>    
+
+    <div class="side-bar">
+
+
+            <div class="auth">
+                <button type="button">로그인</button>
+                <div class="moderation">
+                    <span>아이디 비밀번호 찾기</span>
+                    <span class="join">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.05043 7.30509C10.3239 6.67716 11.2 5.36589 11.2 3.85C11.2 1.7237 9.4763 0 7.35 0C5.2237 0 3.5 1.7237 3.5 3.85C3.5 5.27146 4.27034 6.51299 5.41632 7.1799C2.31314 7.8976 0 10.6787 0 14H14C14 10.8474 11.916 8.18164 9.05043 7.30509Z" fill="#B5B4B4"/>
+                            </svg>
+                        &nbsp;회원가입
+                    </span>
+                </div>
+            </div>
+
+            <div class="recent-articles">
+                <span class="recent-articles-title">새로운 갤러리</span>
+                <ul class="recent-articles-contents">
+                    <li *ngFor="let item of recentArticles">{{item}}</li>
+                </ul>
+            </div>
+    </div> 
+    <div class="right-banner">
+        <img src="/assets/images/banner/banner-sample-right.png">
+    </div> 
+
+</div>
+
+

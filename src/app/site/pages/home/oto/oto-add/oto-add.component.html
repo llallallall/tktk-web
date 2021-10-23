@@ -1,0 +1,104 @@
+<app-page-title-back>
+    1:1 문의
+</app-page-title-back>
+
+<app-page-container>
+
+    <div>
+        <div fxLayout="row" class="bd-top bd-bottom">
+            <div fxFlex="100%" fxLayout="row">
+                <div class="cell-hc">
+                    제목
+                </div>
+                <div class="center-v cell">
+                    <input class="cu-grid-input cu-grid-input-bd"
+                        style="width: 100%; text-align:left;" name="title"
+                        maxlength="40" placeholder="제목" [(ngModel)]="model.title">
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" class="bd-bottom">
+            <div fxFlex="100%" fxLayout="row">
+                <div class="cell-hc">
+                    질문유형
+                </div>
+                <div class="center-v cell">
+                    <div class="cu-grid-input-bd" style="width: 100%; ">
+                        <app-qna-qclass-picker
+                        [code]="model.questionClassIdx"
+                        (on_changed)="on_changed_qclass($event)"
+                        ></app-qna-qclass-picker>   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" class="bd-bottom">
+            <div fxFlex="100%" fxLayout="row">
+                <div class="cell-hc">
+                    문의내용
+                </div>
+                <div class="center-v cell">
+                    <textarea 
+                    class="cu-grid-input-bd"
+                        style="width: 100%; height: 100px; text-align:left;"
+                        [(ngModel)]="model.question" name="question" placeholder="내용을 입력해 주세요.">
+                        </textarea>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" class="bd-bottom">
+            <div fxFlex="100%" fxLayout="row">
+                <div class="cell-hc">
+                    파일첨부
+                </div>
+                <div class="center-v cell">
+                    <div style="width: 100%;">
+                        <div fxLayout="row" fxLayoutGap="1vw" fxLayoutAlign="center center" style="width: 100%;">
+                            <div class="cu-grid-input-bd filename-wrap center-v" style="width: 100%;"
+                            (click)="fileInput.click()"
+                            >
+                                <div class="filename-text center-v" style="width: 100%; height: 16px;">
+                                    {{model.localResource?.fileLocal?.name}}
+                                </div>
+                            </div>
+                            <button (click)="fileInput.click()" style="width: 100px; height: 34px;">
+                                <span>파일첨부</span>
+                                <input #fileInput type="file" (change)="onFileChnagEvent($event)"
+                                    style="display:none;" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" class="bd-bottom">
+            <div fxFlex="100%" fxLayout="row">
+                <div class="cell-hc">
+                    비밀번호
+                </div>
+                <div class="center-v cell">
+                    <input class="cu-grid-input cu-grid-input-bd"
+                        style="width: 100px; text-align:left;" name="passwd"
+                        maxlength="4" placeholder="비밀번호4자리" [(ngModel)]="model.passwd">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div>
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="3vw" style="margin-top: 2vh;">
+            <button mat-raised-button color="primary" style="width: 140px;"
+                [style.opacity]="model.validErr?'.5':'.99'" (click)="onClickSubmit()">
+                등록
+            </button>
+            <button mat-raised-button color="basic" style="width: 140px;" (click)="onClickCancel()">
+                취소
+            </button>
+        </div>
+    </div>
+    
+
+    <!-- <app-pdf-link [pageNo]="93"></app-pdf-link> -->
+</app-page-container>

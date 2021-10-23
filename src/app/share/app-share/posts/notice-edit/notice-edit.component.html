@@ -1,0 +1,50 @@
+<div fxLayout="column" style="min-width: 300px;">
+
+    <div fxLayout="row" class="bd-top bd-bottom">
+        <div class="cell-hc">
+            제목
+        </div>
+        <div class="center-v cell">
+            <input class="cu-grid-input cu-grid-input-bd"
+                style="width: 100%; text-align:left;" name="title"
+                maxlength="128" placeholder="공지 제목을 입력하세요." [(ngModel)]="model.title">
+        </div>        
+    </div>
+
+    <!-- <div fxLayout="row" class="bd-bottom">
+        <div class="cell-hc">
+            해시태그
+        </div>
+        <div class="center-v cell">
+            <mat-chip-list style="margin: 0 1vw;">
+                <mat-chip
+                *ngFor="let hashtag of model.hashtags"
+                [selectable]="false"
+                [removable]="true"
+                color="red"
+                (removed)="onRmoveHashtag(hashtag)">
+                {{hashtag}}
+                <mat-icon matChipRemove >cancel</mat-icon>
+              </mat-chip>
+            </mat-chip-list>
+            <input class="cu-grid-input cu-grid-input-bd" 
+            style="width: 100px;" name="name" maxlength="128"
+            (keydown.enter)="$event.preventDefault();" (keyup.enter)="onAddHashtag()"
+                placeholder="해시태그" [(ngModel)]="hashtag">
+        </div>
+    </div> -->
+
+
+    <app-cu-editor
+    [fileClass]="'post_image'"
+    [resourceIdx]="model.resourceIdx"
+    (on_editor_created)="onEditorCreated($event)"
+    (on_click_cmd)="onEdtorCmd($event)"
+    ></app-cu-editor>
+
+    <div class="bd-bottom"></div>
+
+    <!-- <app-post-media-input-form></app-post-media-input-form> -->
+
+
+</div>

@@ -1,0 +1,7 @@
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="0px">    
+    <button mat-button *ngIf="userModel" [@fadeIn] (click)="onClickItem()" [class.mat-elevation-z16]="hover"
+        (mouseover)="hover=true" (mouseleave)="hover=false">
+        <mat-icon>account_circle</mat-icon>
+        {{userModel.userId}}
+    </button>
+</div>

@@ -1,0 +1,11 @@
+
+
+<div fxLayout="column" fxLayoutAlign="center center" style="height: 50vh;">
+    <mat-spinner *ngIf="isLoading" [@fadeIn] diameter="20"></mat-spinner>
+    <div *ngIf="!isLoading" [@fadeIn]>
+        <span>
+            만료된 세션입니다.
+        </span>
+    </div>
+</div>
+

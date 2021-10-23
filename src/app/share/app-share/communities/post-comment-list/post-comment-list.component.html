@@ -1,0 +1,37 @@
+<div>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutGap="32px">
+            <div class="label-text">
+                댓글
+                <span class="label-value">
+                    {{qp.totalCount}}
+                </span>
+                개
+            </div>
+            <!-- <button [@fadeIn] mat-raised-button color="primary" (click)="onClickAdd()">
+                <mat-icon inline>add</mat-icon>
+                배너 등록
+            </button> -->
+            <!-- <button mat-raised-button color="primary" (click)="onClickSetting()"
+                style="width: 100px;"
+                >
+                    설정
+                </button> -->
+        </div>
+
+        <mat-paginator [showFirstLastButtons]="true" [length]="qp.totalCount" [pageSize]="qp.pageSize"
+            [pageIndex]="qp.pageNo" [pageSizeOptions]="[10, 20, 50, 100]" (page)="onPageEvent($event)"
+            style="margin: 0.5rem 0;">
+        </mat-paginator>
+    </div>
+</div>
+
+<div>
+    <div *ngFor="let item of items">
+        <app-post-comment-item [commentModel]="item"></app-post-comment-item>
+    </div>
+</div>
+
+<div style="height: 10vh;">
+
+</div>

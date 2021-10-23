@@ -1,0 +1,24 @@
+<mat-expansion-panel hideToggle class="mat-elevation-z0" style="background-color: transparent; width: 277px;"
+    [expanded]="expanded" (opened)="on_opened($event)" (closed)="on_closed($event)">
+    <mat-expansion-panel-header>
+        <div fxLayout="row" fxLayoutAlign="space-between center" style="padding: 0 0 0 16px; width: 100%;">
+            <div [class]="menu.selected?'mn-title-active':'mn-title-inactive'">
+                {{menu.title}} 
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <img [src]="arrowImg" class="arrowImg" style="width: 30px; height: 30px;">
+            </div>
+        </div>
+    </mat-expansion-panel-header>
+    <div>
+        <div *ngFor="let item of menu.childs">
+            <button mat-button style="width: 100%;" fxLayout="row" fxLayoutAlign="start center"
+            (click)="onClickChild(item)"
+            >
+                <div [ngClass]="item.selected?'mn-child-title-active':'mn-child-title-inactive'">
+                    {{item.title}}
+                </div>
+            </button>
+        </div>
+    </div>
+</mat-expansion-panel>

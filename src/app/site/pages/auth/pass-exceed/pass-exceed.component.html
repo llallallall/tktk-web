@@ -1,0 +1,84 @@
+<div class="x34-mo-dormant screen" style="margin: 5vh 20vw;">
+    <div class="header-mo" fxLayout="row" fxLayoutAlign="center center">
+        <div class="overlap-group">
+            <img class="logo" [src]="siteModel.logoUrl" style="width: 300px; height: 72px; object-fit: contain;">
+        </div>
+    </div>
+
+    <mat-divider style="margin: 5vh 0;"></mat-divider>
+
+    <div>
+        <div class="frame-108">
+            <div class="text-94 cu-center" style="width: 100%; margin: 2vh;">
+                비밀번호 변경안내
+            </div>
+            <mat-divider></mat-divider>
+            <div class="frame-179">
+                <p class="text-95 valign-text-middle x14regular" style="margin: 2vh 0;">
+                    회원님께서는 장기간 비밀번호를 변경하지 않고 동일한 비밀번호를 사용 중이십니다.<br>{{siteModel?.siteName}}는
+                    회원님의 소중한 개인정보를 보호하기 위해 비밀번호 변경을 안내해 드리고 있습니다.<br>정기적인
+                    비밀번호 변경으로 회원님의 개인정보를 보호해 주세요.<br><br>안전한 비밀번호 관리 방법
+                    <br>비밀번호는 최소 3개월에 한 번씩 주기적으로 변경해 주시는 것이 좋습니다.<br>비밀번호 변경 시
+                    타인에게 노출되지 않도록 주의 해주세요.
+                </p>
+
+                <div fxLayout="column" style="margin: 2vh 0;">
+                    <mat-form-field appearance="outline" floatLabel="always">
+                        <mat-label>비밀번호</mat-label>
+                        <input matInput 
+                        type="password"
+                        [(ngModel)]="model.passwd"
+                        placeholder="비밀번호는 6~20자 사이의 영문, 숫자, 영문+숫자를 사용해주세요">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" floatLabel="always">
+                        <mat-label>비밀번호 확인</mat-label>
+                        <input matInput 
+                        type="password"
+                        [(ngModel)]="model.passwdConfirm"
+                        placeholder="비밀번호를 한 번 더 입력해주세요">
+                    </mat-form-field>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div *ngIf="model" [@fadeIn] class="frame-178">
+        <div class="change-pin-number">
+
+            <mat-divider style="margin: 2vh 0;"></mat-divider>
+            <div class="frame-164" >
+                <div class="buttontext-l" fxLayout="row" 
+                fxLayoutAlign="center center"
+                fxLayoutGap="5vw">
+                    <div class="buttontext-m border-1px-secondary1-org">
+                        <button *ngIf="!isLoading" [@fadeIn] mat-stroked-button color="primary" style="width: 120px;"
+                            (click)="onClickSubmit()">
+                            비밀번호 변경
+                        </button>
+                        <mat-spinner *ngIf="isLoading" [@fadeIn] diameter="20"></mat-spinner>
+                    </div>
+                    <div class="buttontext-m border-1px-secondary1-org">
+                        <button *ngIf="!isLoading" [@fadeIn] mat-stroked-button color="primary" style="width: 120px;"
+                            (click)="onClickNext()">
+                            다음에 변경
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<mat-divider style="margin: 1vh 0;"></mat-divider>
+
+<div>
+    <app-pdf-link [pageNo]="107"></app-pdf-link>
+    <a href="https://www.figma.com/file/5McWa4BMFFXRDM4qfsklr4/tikitaka-user?node-id=250%3A20198">
+        figma
+    </a>
+</div>

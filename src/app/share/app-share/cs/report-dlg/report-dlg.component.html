@@ -1,0 +1,21 @@
+<!-- <h1 mat-dialog-title *ngIf="data.title" class="text-danger"> {{data.title}}</h1> -->
+<div mat-dialog-content>
+
+    <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>신고 사유</mat-label>
+        <textarea matInput placeholder="신고사유를 입력해 주세요." style="line-height: 1.4; height: 200px;" maxlength="400"
+            [(ngModel)]="data.reportModel.content"></textarea>
+        <mat-hint align="end">{{data.reportModel.content?.length || 0}}/400</mat-hint>
+        <!-- <input matInput 
+        placeholder="신고사유를 입력해 주세요." 
+        style="line-height: 1.4;"
+        [(ngModel)]="data.reportModel.content"
+        > -->
+    </mat-form-field>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px" style="margin-top: 32px;">
+    <button mat-raised-button style="width: 100px;" (click)="onNoClick()">취소</button>
+    <button mat-raised-button style="width: 100px;" (click)="onClickSubmit()" color="primary"
+        [disabled]="!data.reportModel.content">{{okBtnName}}</button>
+</div>

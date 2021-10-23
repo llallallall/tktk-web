@@ -1,0 +1,37 @@
+<div style="margin: 2vh 0;" [@fadeIn]>
+
+
+    <div style="margin: 1vh 0;">
+        <span class="sub-title">댓글</span>
+        <span class="sub-title-count">({{qp.totalCount}})</span>
+    </div>
+
+    <mat-paginator [showFirstLastButtons]="true" [length]="qp.totalCount" [pageSize]="qp.pageSize"
+        [pageIndex]="qp.pageNo" [pageSizeOptions]="[10, 20, 50, 100]" (page)="onPageEvent($event)"
+        style="margin: 0.5rem 0;">
+    </mat-paginator>
+    
+
+    <div fxLayout="column" fxLayoutGap="1rem">
+        <div *ngFor="let item of items">
+            <app-sr-item-comment
+            [commentModel]="item"
+            ></app-sr-item-comment>
+        </div>
+    </div>
+
+
+
+    <div *ngIf="!isLoading" style="margin: 3vw 0;">
+        <div *ngIf="items.length === 0" [@fadeIn]>
+            검색결과가 없습니다.
+        </div>
+    </div>
+
+    <div *ngIf="isLoading" [@fadeIn]>
+        <mat-spinner diameter="20">
+        </mat-spinner>
+    </div>
+
+
+</div>

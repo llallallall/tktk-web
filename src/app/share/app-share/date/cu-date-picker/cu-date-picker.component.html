@@ -1,0 +1,36 @@
+
+<div style="height: 350px;" fxLayout="column" fxLayoutAlign="space-between center">
+    <div style="width: 250px;">
+        <mat-calendar 
+        *ngIf ="isTypeStart" [@fadeIn]
+        #calendarS [maxDate]="max" 
+        [startAt]="date"
+        [(selected)]="date" (selectedChange)="onSelectionChanged($event)">
+        </mat-calendar>
+        <mat-calendar 
+        *ngIf ="!isTypeStart" [@fadeIn]
+        #calendarE 
+        [maxDate]="max" 
+        [minDate]="min" 
+        [startAt]="date"
+        [(selected)]="date" (selectedChange)="onSelectionChanged($event)">
+        </mat-calendar>
+    </div>
+
+    <div style="width: 250px;">
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap=".5rem">
+            <button 
+            fxFlex="50%"
+            mat-stroked-button
+            (click)="onClickCancel()"
+            >취소</button>
+            <button 
+            *ngIf="newDate" [@fadeIn]
+            fxFlex="50%"
+            mat-stroked-button color="primary"
+            (click)="onClickSubmit()"
+            >확인</button>
+        </div>    
+    </div>
+
+</div>

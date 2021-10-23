@@ -1,0 +1,65 @@
+<!-- <app-home-toolbar>
+    <div>
+        검색
+    </div>
+</app-home-toolbar> -->
+
+<app-page-title-back>
+    <div>
+        검색
+    </div>
+</app-page-title-back>
+
+<app-page-container>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1vw">
+
+        <mat-form-field appearance="outline" style="width: 100%;">
+            <!-- <mat-label>Standard form field</mat-label> -->
+            <input matInput placeholder="검색어를 입력하세요." [(ngModel)]="qp.searchWord"
+            (keydown.enter)="$event.preventDefault();" (keyup.enter)="onClickSearch()"
+            >
+            <mat-icon matSuffix style="cursor: pointer; transition: .5s;" 
+            [style.opacity]="qp.searchWord?'.99':'.2'"
+                (click)="onClickSearch()">search</mat-icon>
+        </mat-form-field>
+
+    </div>
+
+    <div>
+
+        <app-sr-main-type-picker [code]="qp.sr_main" (on_changed)="on_changed_sr_main($event)">
+        </app-sr-main-type-picker>
+
+        <div style="margin: 2vh 0;">
+
+            <mat-divider></mat-divider>
+
+            <div *ngIf="qp.sr_main === 'integrated'" [@fadeIn]>
+                <app-sr-list-post 
+                ></app-sr-list-post>
+                <mat-divider></mat-divider>
+                <app-sr-list-comment></app-sr-list-comment>
+            </div>
+
+            <div *ngIf="qp.sr_main === 'post'" [@fadeIn]>
+                <app-sr-list-post ></app-sr-list-post>
+            </div>
+  
+            <div *ngIf="qp.sr_main === 'comment'" [@fadeIn]>
+                <app-sr-list-comment></app-sr-list-comment>
+            </div>
+
+            <mat-divider></mat-divider>
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+</app-page-container>

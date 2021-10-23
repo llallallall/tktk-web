@@ -1,0 +1,45 @@
+
+
+<div *ngIf="model" [@fadeIn] fxLayout="column" fxLayoutAlign="center center"> 
+
+
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <div class="text-847 valign-text-middle x14extrabold" fxLayout="row" fxLayoutAlign="center center"
+            style="margin: 2vh; font-size: 14px; font-weight: bold;">
+            비밀번호 변경
+        </div>
+
+        <div style="margin: 1vh;" fxLayout="column" fxLayoutAlign="center center">
+
+            <mat-form-field appearance="outline" style="min-width: 320px; width: 50vw;">
+                <mat-label>비밀번호 변경</mat-label>
+                <input matInput placeholder="비밀번호는 6~20자 사이의 영문+숫자를 사용해주세요."
+                [(ngModel)]="userModel.passwd"
+                >                        
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="min-width: 320px; width: 50vw;">
+                <mat-label>비밀번호 확인</mat-label>
+                <input matInput placeholder="비밀번호를 한 번 더 입력해주세요."
+                [(ngModel)]="userModel.passwdConfirm"
+                >                        
+            </mat-form-field>
+
+
+        </div>
+    </div>
+
+    <div style="margin: 3vh;">
+        <button *ngIf="!isLoading" [@fadeIn] mat-stroked-button color="primary" style="width: 320px;" (click)="onClickSubmit()">
+            비밀번호 변경하기
+        </button>
+        <mat-spinner *ngIf="isLoading" [@fadeIn] diameter="20"></mat-spinner>
+    </div>
+
+</div>
+
+<div *ngIf="!model" [@fadeIn] fxLayout="column" fxLayoutAlign="center center" style="height: 50vh;">
+    <mat-spinner diameter="20"></mat-spinner>
+</div>
+
+

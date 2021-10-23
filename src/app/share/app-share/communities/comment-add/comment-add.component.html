@@ -1,0 +1,18 @@
+<div class="cmt_editor" fxLayout="column">
+    <div style="font-size: .9rem; opacity: .8;">
+        댓글 쓰기
+    </div>
+    <div *ngIf="model" [@fadeIn] fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1vw">
+
+        <app-grid-input-box style="width: 100%;" (click)="onClickInput()">
+            <input matInput class="cu-grid-input" style="width: 100%; height: 2rem;" name="name" maxlength="128" [disabled]="!me"
+                [placeholder]="me?'댓글을입력해주세요.':'댓글 작성 하시려면 로그인 해주세요. 로그인 하시겠습니까?'" 
+                [(ngModel)]="model.text">
+        </app-grid-input-box>
+
+        <button style="width: 120px; height: 32px;" [disabled]="!model.text" mat-flat-button color="primary"
+            (click)="onClickSubmit()">
+            등록
+        </button>
+    </div>
+</div>

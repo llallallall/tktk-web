@@ -1,0 +1,25 @@
+
+<div>
+    <article class="message is-danger">
+        <div *ngIf="data.errorTitle" class="message-header" fxLayout="row" fxLayoutAlign="center center"
+        fxLayoutGap="4px">
+            <div>
+                <mat-icon>error_outline</mat-icon>
+            </div>
+            <div>
+                {{data.errorTitle}}
+            </div>
+            <!-- <button class="delete" aria-label="delete"></button> -->
+        </div>
+        <div class="message-body">
+            <div>
+                {{data.errorMessage}}
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 32px;">
+                <button mat-stroked-button (click)="onNoClick()" style="color: black; width: 150px;">
+                    {{'확인'}}
+                </button>
+            </div>
+        </div>
+    </article>
+</div>

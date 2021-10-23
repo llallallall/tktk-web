@@ -1,0 +1,69 @@
+<app-home-toolbar>
+    <div *ngIf="!searchMode" [@fadeIn]>
+        {{siteModel?.siteId}}
+    </div>
+
+    <div *ngIf="searchMode" [@fadeIn] fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1vw">
+
+        <div style="height: 100%;" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap=".1vw">
+            <input matInput placeholder="검색어를 입력하세요." 
+            [(ngModel)]="qp.searchWord"
+            style="padding: 1vw;">
+            <button mat-icon-button (click)="onClickSearch();"
+            [style.opacity]="qp.searchWord?'.99':'.5'"
+            >
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+
+    </div>
+
+    <div right-menu>
+        <div *ngIf="!searchMode" [@fadeIn]>
+            <button mat-icon-button (click)="searchMode=true;">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+        <div *ngIf="searchMode" [@fadeIn]>
+            <button mat-icon-button (click)="searchMode=false;">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+
+    </div>
+</app-home-toolbar>
+
+
+<app-page-container>
+
+    <app-banner-slider>
+
+    </app-banner-slider>
+
+    <app-global-search-box>
+    </app-global-search-box>
+
+    <div fxLayout="row" fxLayoutGap="1vw">
+        <div *ngFor="let item of itemsCategory">
+            <div *ngIf="item.display === 'Y'">
+                <button mat-stroked-button (click)="onClickCategory(item)">{{item.name}}</button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="mat-elevation-z10" style="height: 500px; margin: 1vw 0;" fxLayout="column"
+        fxLayoutAlign="center center">
+        <div>
+            main contents
+        </div>
+
+        <app-pdf-link [pageNo]="26" title="main"></app-pdf-link>
+    </div>
+
+
+
+
+
+
+</app-page-container>

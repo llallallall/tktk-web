@@ -1,0 +1,57 @@
+<app-page-title-back>
+    게시글
+</app-page-title-back>
+
+<app-page-container>
+
+
+    <div *ngIf="postModel" [@fadeIn] fxLayout="column" fxLayoutGap="3vw">
+
+
+        <div>
+            <div fxLayout="column" fxLayoutGap="1vw" class="mat-elevation-z10" style="padding: 1vw;">
+                <div style="font-size: 1.5rem; font-weight: bold;">
+                    {{postModel.title}}
+                </div>
+                <div fxLayout="row" fxLayoutGap="1vw" style="font-size: .9rem; opacity: .9;">
+                    <div>
+                        {{postModel.userCreator?.displayName}}
+                    </div>
+                    <div>
+                        <div>{{postModel.createdAtDate | date:'yyyy-MM-dd hh:mm:ss'}} </div>
+                    </div>
+                </div>
+                <div>
+                    <app-post-tools
+                    [postModel]="postModel"
+                    ></app-post-tools>
+                </div>
+            </div>
+        </div>
+        <div class="mat-elevation-z10" style="padding: 3vw;">
+            <app-cu-tui-viewer
+            [markdown]="postModel.content"
+            ></app-cu-tui-viewer>
+            <!-- <div id="editor" style="margin: 3vw;"></div> -->
+        </div>
+
+        <div>
+            <app-post-tools
+            [postModel]="postModel"
+            ></app-post-tools>
+        </div>
+
+        <div>
+            <app-comment-add *ngIf="commentAdding" [@fadeIn] [model]="commentAdding"
+                (on_changed)="on_comment_added($event)"></app-comment-add>
+        </div>
+
+        <div>
+            <app-post-comment-list [postModel]="postModel"></app-post-comment-list>
+        </div>
+
+    </div>
+
+    <app-pdf-link [pageNo]="40" title="post-detail"></app-pdf-link>
+
+</app-page-container>

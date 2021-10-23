@@ -1,0 +1,50 @@
+.mn-title-active {
+    font-size: 17px;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: var(--deepgreen);
+    transition: 0.5;
+}
+
+.mn-title-inactive {
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: var(--dark-grey);
+    transition: 0.3s;
+}
+
+.img-arrow {
+    width: 30px;
+    height: 30px;
+}
+
+.mn-child-title-active {
+    padding: 10px 10px 10px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: var(--deepgreen);
+    transition: 0.5s;
+}
+
+.mn-child-title-inactive {
+    padding: 10px 10px 10px 40px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: var(--dark-grey);
+    transition: 0.7s;
+}

@@ -1,0 +1,70 @@
+<app-page-container>
+
+    <div *ngIf="me" [@fadeIn] fxLayout="column" fxLayoutGap="1rem" style="max-width: 600px;">
+        <div>
+            회원탈퇴
+        </div>
+        <div>            
+            <mat-hint>
+                개인정보보호를 위해 비밀번호를 입력해주세요.
+            </mat-hint>
+        </div>
+
+
+        <div fxLayout="column">
+            <mat-form-field appearance="standard">
+                <mat-label>비밀번호</mat-label>
+                <input matInput [(ngModel)]="me.passwd" placeholder="PASSSWORD">
+                <mat-hint>
+                    최대20자까지입력가능20자초과시입력방지영문,숫자외텍스트입력불가
+                </mat-hint>
+            </mat-form-field>
+        </div>
+
+
+        <div fxLayout="column" style="padding: 1vw 3vw;">
+            <button mat-raised-button color="primary" (click)="onClickSubmit()">
+                확인
+            </button>
+            <mat-hint>
+                정상루트터치시 회원탈퇴페이지진입
+                <br>
+                예외상황Alert
+            </mat-hint>
+        </div>
+
+<!-- 
+        <div fxLayout="column" style="padding: 1vw 3vw;">
+            <button mat-raised-button color="primary" (click)="onClickEdit()">정보수정</button>
+        </div>
+
+        <div fxLayout="column" style="padding: 1vw 3vw;">
+            <button mat-stroked-button  color="warn" (click)="onClickWithdrawn()">회원탈퇴
+            </button>
+        </div> -->
+
+
+    </div>
+
+
+
+    <!-- 12플레이스홀더: PASSSWORD
+        최대20자까지입력가능20자초과시입력방지영문,숫자외텍스트입력불가
+        한글상태에서필드입력시자동영어로변환확인
+        정상루트터치시 회원탈퇴페이지진입
+        예외상황Alert 
+        생성Alert내용
+        -비밀번호미입력: 비밀번호를 입력해주세요.
+        -비밀번호불일치: 비밀번호를 확인해주세요.
+        -에러: 다시시도해주세요. -->
+
+
+
+
+    <div style="margin: 5vw;">
+        <app-pdf-view [pageNo]="99" title="회원탈퇴 page">
+        </app-pdf-view>
+    </div>
+</app-page-container>
+
+

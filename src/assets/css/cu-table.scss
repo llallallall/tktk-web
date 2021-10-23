@@ -1,0 +1,68 @@
+
+
+//////////////////////////////////////////////
+
+/* table */
+table.table-rows {
+    width: 100%;
+    border: 0;
+    font-size: 13px;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: #fff;
+    position: relative;
+}
+table.table-rows th {
+    background: #ffffff;
+    text-align: center;
+    font-weight: 500;
+}
+table.table-rows td {
+    padding: 12px 5px;
+    color: #4c4c4c;
+    font-size: 13px;
+}
+table.table-rows th {
+    padding: 12px 10px;
+    color: #2f2e2e;
+    font-size: 14px;
+}
+table.table-rows th {
+    border: 1px solid #9b9b9e;
+    vertical-align: middle;
+}
+table.table-rows td {
+    border: 1px solid #eaeaea;
+    vertical-align: middle;
+}
+table.table-rows.novline th,
+table.table-rows.novline td {
+    border-left: none;
+    border-right: none;
+}
+table.table-rows.tcenter th,
+table.table-rows.tcenter td {
+    text-align: center;
+}
+table.table-rows td.text-left {
+    text-align: left;
+}
+
+table.table-rows td.called {
+    color: #999;
+}
+table.table-rows tr.selected td {
+    background-color: #dcf1f6;
+}
+
+.list-item {
+}
+
+.list-item:hover {
+    background-color: rgba(#efefef, .5);
+    transition: 1s;
+    cursor: pointer;
+}
+
+//////////////////////////////////////////////

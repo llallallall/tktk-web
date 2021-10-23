@@ -1,0 +1,68 @@
+<div *ngIf="commentModel?.display === 'Y'" [@fadeIn]>
+
+    <div fxLayout="column" fxLayoutGap=".5rem" style="padding: 1rem 0;">
+        <mat-divider></mat-divider>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1vw">
+                <div style="opacity: .2;">
+                    <mat-icon>comment</mat-icon>
+                </div>
+                <div class="user-creator">{{commentModel.userCreator?.displayName}}</div>
+                <div class="create-time">4 시간 전</div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <button mat-icon-button [color]="evalData?.checkedLike === 'Y' ? 'primary':'basic'"
+                    (click)="onClickRate(true)">
+                    <mat-icon inline>thumb_up</mat-icon>
+                    <span *ngIf="evalData" [@fadeIn] style="font-size: .8rem; opacity: .5;"> {{evalData.cntLike}}</span>
+                </button>
+                <button mat-icon-button [color]="evalData?.checkedLike === 'N' ? 'primary':'basic'"
+                    (click)="onClickRate(false)">
+                    <mat-icon inline>thumb_down</mat-icon>
+                    <span *ngIf="evalData" [@fadeIn] style="font-size: .8rem; opacity: .5;">
+                        {{evalData.cntDislike}}</span>
+                </button>
+                <button mat-icon-button [color]="evalData?.reportIdx ? 'primary':'basic'" (click)="onClickReport()">
+                    <mat-icon inline>report</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="content-text">
+            <span class="user-target">
+                {{commentModel.userTarget?.displayName}}
+            </span>
+            <span (click)="onClickText()">
+                {{commentModel.text}}
+            </span>
+        </div>
+
+        <div style="padding-left: 1vw;">
+            <div *ngFor="let item of items">
+                <app-post-comment-item [commentModel]="item"></app-post-comment-item>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="commentModel?.display === 'N'" [@fadeIn]>
+
+    <div fxLayout="column" fxLayoutGap=".5rem" style="padding: 1rem 0;">
+        <mat-divider></mat-divider>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1vw">
+                <div style="opacity: .2;">
+                    <mat-icon>comment</mat-icon>
+                </div>
+                <div class="user-creator">
+                    관리자에 의해 삭제된 댓글 입니다
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center">
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

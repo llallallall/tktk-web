@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1vw">
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <!-- <mat-label>Standard form field</mat-label> -->
+        <input matInput placeholder="검색어를 입력하세요." [(ngModel)]="searchWord"
+        (keydown.enter)="$event.preventDefault();" (keyup.enter)="onClickSearch()"
+        >
+        <mat-icon matSuffix style="cursor: pointer; transition: .5s;" 
+        [style.opacity]="searchWord?'.99':'.2'" (click)="onClickSearch()">
+            search</mat-icon>
+    </mat-form-field>
+
+</div>

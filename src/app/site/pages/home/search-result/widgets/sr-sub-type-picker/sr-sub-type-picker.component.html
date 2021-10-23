@@ -1,0 +1,13 @@
+<div fxLayout="row">
+    <div *ngFor="let item of items; let ix=index;" fxLayout="row">
+        <div style="border: 0px solid grey;">
+            <button mat-button = "border-radius: 0;"
+            [style.font-weight]="item.code===code?'bold':'normal'"
+            (click)="onClickItem(item)"
+            >
+                {{item.name}}
+            </button>
+        </div>        
+        <mat-divider *ngIf="ix<items.length-1" [vertical]="true"></mat-divider>
+    </div>
+</div>

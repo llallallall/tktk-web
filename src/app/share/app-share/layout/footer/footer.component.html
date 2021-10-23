@@ -1,0 +1,38 @@
+<div class="footer-wrap" fxHide.lt-sm fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5vw">
+    <div *ngIf="logoUrl" [@fadeIn]>
+        <img [src]="logoUrl" style="height: 48px;">
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap=".5rem">
+        <div>
+            {{siteSettingModel.copyright}}
+        </div>
+        <div fxLayout="row" fxLayoutGap=".5rem">
+            <div *ngFor="let item of siteSettingModel.links">
+                <a mat-stroked-button [href]="item.url">
+                    {{item.name}}
+                </a>
+            </div>
+            <div>
+                <button mat-stroked-button
+                (click)="onClickOto()"
+                >
+                    문의/신고
+                </button>
+            </div>
+            <div>
+                <button mat-stroked-button
+                (click)="onClickNotice()"
+                >
+                    공지사항
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <p>footer works!</p>
+
+
+<a href="https://trello.com/c/RH344urg/27-어드민에서-게시판별-푸터-입력-수정기능-제공-검토">
+    게시판별-푸터
+</a> -->

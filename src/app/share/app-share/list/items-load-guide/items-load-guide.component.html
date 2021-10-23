@@ -1,0 +1,19 @@
+<div *ngIf="items.length === 0" [@fadeIn]>
+    <div *ngIf="isLoading" [@fadeIn] fxLayout="row" fxLayoutAlign="center center" style="height: 80vh;">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1vh" style="opacity: .5;">
+            <mat-spinner diameter="20">
+            </mat-spinner>
+            <div>
+                {{msg_wait}}
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!isLoading" [@fadeIn] fxLayout="row" fxLayoutAlign="center center" style="height: 80vh;">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1vh" style="opacity: .5;">
+            <div>
+                {{msg_empty}}
+            </div>
+        </div>
+    </div>
+</div>
+

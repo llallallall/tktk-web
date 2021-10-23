@@ -1,0 +1,32 @@
+
+<div 
+fxLayout="row wrap" fxLayoutAlign="center center"
+fxLayoutGap="2vw"
+style="padding: 1vw;"
+[style.color]="invertColor0(model.value)"
+[style.background-color]="model.value">
+
+    <div class="cu-center" style="font-size: 1.2rem; font-weight: bold;">
+        {{model.name}}
+    </div>
+
+    <div>
+        <mat-form-field appearance="standard">
+            <!-- <mat-label>Fill form field</mat-label> -->
+            <input matInput placeholder="Input Color"
+            [(ngModel)]="value"
+            (keydown.enter)="$event.preventDefault();" (keyup.enter)="onClickSubmit()"
+            >
+            <mat-icon matSuffix
+            style="cursor: pointer;"
+            *ngIf="value !== model.value"
+            (click)="onClickSubmit()"
+            >check_circle</mat-icon>
+            <!-- <mat-hint>Hint</mat-hint> -->
+          </mat-form-field>
+    </div>
+
+
+</div>
+
+

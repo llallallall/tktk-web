@@ -1,0 +1,47 @@
+
+<div fxLayout="row" fxLayoutAlign="space-between center" style="margin: 1vw 0;">
+    <div></div>
+    <button 
+    *ngIf="me?.isManagerClass" [@fadeIn]
+    mat-stroked-button (click)="onClickAdd()">공지 작성</button>
+</div>
+
+<div style="margin: 2vw 0;">
+
+    <div *ngFor="let item of items">
+        <div fxLayout="row" fxLayoutAlign="start center" (click)="onClickItem(item)">
+            <div>
+                <mat-icon style="margin: 1vw;">info</mat-icon>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center start" fxLayoutGap=".3rem" style="margin: .5rem 0;">
+                <div style="font-weight: bold;">
+                    {{item.title}}
+                </div>
+                <div fxLayout="row" fxLayoutGap="1vw" style="font-size: .9rem; opacity: .9;">
+                    <div>
+                        {{item.userCreator?.displayName}}
+                    </div>
+                    <div> | </div>
+                    <div>{{item.createdAtDate | date:'yyyy-MM-dd hh:mm'}} </div>
+                    <div> | </div>
+                    <div> 조회 {{item.viewCount || 0}} </div>
+                    <div> | </div>
+                    <div> 추천 {{item.evalData?.cntLike || 0}} </div>
+                    <div> | </div>
+                    <div>
+                        [200] ???
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        
+        <mat-divider></mat-divider>
+        <!-- <app-palist-item-notice [model]="item" 
+        (click)="onClickItem(item)"></app-palist-item-notice> -->
+    </div>   
+
+</div>
+
+<mat-paginator [showFirstLastButtons]="true" [length]="qp.totalCount" [pageSize]="qp.pageSize" [pageIndex]="qp.pageNo"
+    [pageSizeOptions]="[10, 20, 50, 100]" (page)="onPageEvent($event)" style="margin: 0.5rem 0;">
+</mat-paginator>

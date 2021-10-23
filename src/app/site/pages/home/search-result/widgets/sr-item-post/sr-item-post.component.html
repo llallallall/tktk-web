@@ -1,0 +1,32 @@
+<div fxLayout="column" fxLayoutGap=".5rem">
+    <div class="sr-post-title" fxLayout="row" fxLayoutGap="1vw">
+        <span>[{{postModel.galleryModel.name}}]</span>
+        <span 
+        style="cursor: pointer;"
+        (click)="onClickPost()"
+        >{{postModel.title}}</span>
+    </div>
+    <div class="sr-content-text">
+        {{postModel.content}}
+    </div>
+    <div fxLayout="row" fxLayoutGap="1vw" class="sr-item-footer-post">
+        <div class="sr-item-creator">
+            {{postModel.userCreator.displayName}}
+        </div>
+        <div>
+            |
+        </div>
+        <div>
+            {{postModel.createdAtDate | date:'yyyy-MM-dd HH:mm'}}
+        </div>
+
+        <div>
+            |
+        </div>
+
+        <!-- <div>
+            추천 수 4
+        </div> -->
+
+    </div>
+</div>

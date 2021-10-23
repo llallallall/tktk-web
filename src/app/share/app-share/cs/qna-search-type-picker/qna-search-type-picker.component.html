@@ -1,0 +1,7 @@
+<mat-select class="form-control" name="code" [(ngModel)]="code" (ngModelChange)="onModelChange($event)"
+    [disabled]="disabled">
+    <mat-option *ngIf="!pickerMode" value="all">
+        {{allName}}
+    </mat-option>
+    <mat-option *ngFor="let item of items" [value]="item.code">{{item.name}}</mat-option>
+</mat-select>

@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+    <button *ngIf="hasBack" [@fadeIn] mat-icon-button (click)="onClickBack($event)">
+        <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+    <div class="page-title2" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+        <ng-content></ng-content>
+    </div>
+
+    <span class="cu-spacer"></span>
+
+    <ng-content select="[right-menu]"></ng-content>
+
+</mat-toolbar>
+
+<mat-divider></mat-divider>
