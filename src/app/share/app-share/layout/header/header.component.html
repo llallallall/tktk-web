@@ -1,12 +1,24 @@
-<header class="tt-header">
-    <div class="tt-header-top" >
+<header fxLayout='column' class="tt-header">
+    <div fxShow fxHide.lt-lg="true" fxHide.gt-md="false" class="tt-header-top" >
         <div class="tt-header-top-inner" >
             <input class="tt-header-search" type="text" placeholder="검색어를 입력하세요"/>
-            
         </div>
     </div>
-    <div class="tt-header-middle" >
+    <div fxShow fxHide.lt-md="false" fxHide.gt-md="true" fxLayout="row" fxLayoutAlign="center center" class="tt-header-top-mobile" >
+        <div fxFlex="20"  class="hamburger" >
+            <img src="/assets/svg/icons/icon-navigation-move.svg">
+        </div>
+        <div fxFlex class="logo" fxLayoutAlign="center center" >
+            <img src="/assets/images/figma/logo@2x.png">
+        </div>
+        <div fxFlex="20" class="search" >
+            <img src="/assets/svg/icons/search.svg">
+        </div>
+    </div>
+
+    <div fxShow fxHide.lt-lg="true" fxHide.gt-md="false" class="tt-header-middle" >
         <img src="/assets/images/figma/logo@2x.png">
+        
     </div>
     <div class="tt-header-bottom" >
         <ul>

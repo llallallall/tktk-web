@@ -27,13 +27,13 @@ export class SiteComponent implements OnInit {
     }
   }
  
-  // get siteModel(): SiteModel {
-  //   return this._api.config.siteModel;
-  // }
-  // 사이트를 들어가기 위해 강제로 입력
-  get siteModel() {
-    return {};
+  get siteModel(): SiteModel {
+    return this._api.config.siteModel;
   }
+  // 사이트를 들어가기 위해 강제로 입력
+  // get siteModel() {
+  //   return {};
+  // }
 
   async loadSiteIfNeed(siteId: string) {
     const ftag = `(loadSiteIfNeed(${siteId})),`;

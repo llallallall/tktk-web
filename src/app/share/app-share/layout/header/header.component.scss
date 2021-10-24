@@ -10,7 +10,35 @@
     width:100%;
     min-height:48px;
     background: linear-gradient(to right, #A262E5, #6183E4);
+}
 
+.tt-header-top-mobile {
+    width:100%;
+    min-height:48px;
+}
+
+.tt-header-top-mobile .hamburger {
+    margin: 10px;
+    position:relative;
+    left:0;
+    top:0;
+}
+
+.tt-header-top-mobile .logo img{
+    width:100%;
+    max-width:200px;
+}
+
+.tt-header-top-mobile .search {
+    margin: 10px;
+    position:relative;
+    right:0;
+    top:0;
+}
+
+.tt-header-top-mobile .search img {
+    float:right;
+    
 }
 
 .tt-header-top-inner {
